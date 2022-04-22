@@ -36,6 +36,7 @@ import android.view.View
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.Marker
 import com.raywenderlich.placebook.databinding.ContentBookmarkInfoBinding
+import com.raywenderlich.placebook.ui.MapsActivity
 
 class BookmarkInfoWindowAdapter(context: Activity) : GoogleMap.InfoWindowAdapter {
 
@@ -52,7 +53,8 @@ class BookmarkInfoWindowAdapter(context: Activity) : GoogleMap.InfoWindowAdapter
     binding.phone.text = marker.snippet ?: ""
     val imageView = binding.photo
 
-    imageView.setImageBitmap((marker.tag as Bitmap))
+    imageView.setImageBitmap((marker.tag as
+            MapsActivity.PlaceInfo).image)
 
     return binding.root
   }
